@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-100>
+         <ion-list>
+           <form (ngSubmit)="saveForm()">
+             <ion-item>
+              <ion-label fixed>
+                  City
+              </ion-label>
+               <ion-input type="text" [(ngModel)]="city" name="name"></ion-input>
+             </ion-item>
+             <ion-item>
+              <ion-label fixed>
+                  State
+              </ion-label>
+               <ion-input type="text" [(ngModel)]="state" name="name"></ion-input>
+             </ion-item>
+             <button ion-button type="submit" block>Save Changes</button>
+           </form>
+         </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
