@@ -13,11 +13,14 @@ import { Geolocation, GeolocationOptions ,Geoposition ,PositionError } from '@io
 export class WeatherProvider {
  apiKey = 'f809352d886d44bc';
  url;
+ urlg;
+
  
   constructor(public http: Http, private geolocation: Geolocation) {
 
     console.log('Hello WeatherProvider Provider');
     this.url ='http://api.wunderground.com/api/'+this.apiKey+'/conditions/q';
+    this.urlg ='http://api.wunderground.com/api/'+this.apiKey+'/geolookup/conditions/q';
 
 
   }
@@ -27,22 +30,9 @@ export class WeatherProvider {
   	 .map(res => res.json());
   }
   
-  getLocalWeather(){
-   this.geolocation.getCurrentPosition({
-     enableHighAccuracy: true
-   })
-   .then((res) => {
-
-
-
-     console.log(res);
-    console.log(res.coords.latitude);
-    console.log(res.coords.longitude);
-    console.log('geoposition loaded...');
-    
-   }).catch((error) => {
-
-     console.log('Error getting location', error);
-});
+  getLocalWeather(lat, lon){
+   return this.http.get(this.url+'/'+lat+','+lon+'.json')
+     .map(res => res.json());
+  
 }
 }

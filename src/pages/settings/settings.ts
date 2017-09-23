@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HomePage} from '../home/home';
-
+import { Geolocation, GeolocationOptions, Geoposition, PositionError } from '@ionic-native/geolocation';
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html'
@@ -10,11 +10,15 @@ import { HomePage} from '../home/home';
 export class SettingsPage {
   city:string;
   state:string;
+  lat: number;
+  lon: number;
+
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private storage: Storage) {
+    private storage: Storage,
+    private geolocation: Geolocation) {
    
     
       this.storage.get('location').then((val) => {
@@ -44,5 +48,38 @@ saveForm(){
   this.navCtrl.push(HomePage);
 }
 
+//////////////////////////
+
+ watchPos(){
+
+
+   this.geolocation.getCurrentPosition({enableHighAccuracy: true})
+   .then((res) => {
+     
+       var latitide = res.coords.latitude;
+       var longitude = res.coords.longitude;
+
+       
+        console.log(res.coords.latitude);
+        console.log(res.coords.longitude);
+        console.log('geoposition loaded...');
+
+
+   let position ={
+
+   latitude : this.lat,
+   longitude: this.lon
+   }
+
+  this.storage.set('position', JSON.stringify(position));
+  this.navCtrl.push(HomePage);
+    
+   }).catch((error) => {
+     console.log('Error getting location', error);
+});
+
+
+
+}
 
 }
