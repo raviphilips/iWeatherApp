@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { Storage} from '@ionic/storage';
-import { Geolocation, GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -23,11 +24,17 @@ export class HomePage {
     public navCtrl: NavController, 
     private weatherProvider: WeatherProvider,
     private storage: Storage,
-    private geolocation: Geolocation) {
+    private geolocation: Geolocation,
+
+   ) {
 
   }
 
   ionViewWillEnter(){
+
+
+  
+
       /*this.storage.get('location').then((val) => {
         if(val != null){
           this.location =JSON.parse(val);
@@ -50,8 +57,8 @@ export class HomePage {
            this.position = JSON.parse(val);
          } else {
            this.position ={
-              lat : "37.773285",
-               lon: "-122.417725"
+              lat : "37.776289",
+               lon: "-122.395234"
            
          }
        }
@@ -64,7 +71,6 @@ export class HomePage {
   });
 
 }
-
 
 
 
