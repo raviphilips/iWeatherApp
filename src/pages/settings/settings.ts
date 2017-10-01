@@ -22,7 +22,7 @@ export class SettingsPage {
     private geolocation: Geolocation) {
    
     
-    /*  this.storage.get('location').then((val) => {
+      this.storage.get('location').then((val) => {
         if(val != null){
           let location =JSON.parse(val);
           this.city = location.city;
@@ -32,7 +32,7 @@ export class SettingsPage {
           this.state = 'FL';
         }
 
-      });*/
+      });
 
       
 
@@ -51,7 +51,7 @@ saveForm(){
   this.navCtrl.push(HomePage);
 }
 
-//////////////////////////
+
 
 
 

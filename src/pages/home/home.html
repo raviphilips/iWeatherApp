@@ -9,7 +9,18 @@
 
 <ion-content padding class="home">
 
+<div class="swiper-container">
 
+  <div class="swiper-wrapper">
+  
+    <div class="swiper-slide" *ngFor="let photo of photos" >
+
+      <img src="{{photo.urlf1}}"/>
+
+      <!-- <div class="swiper-slide" *ngFor="let photo of photos" [ngStyle]="{'background-image': 'url('+ photo.urlf1 +')'}"> -->
+     <!-- <img src="{{photo.urlf1}}" alt=""/> style="background-image:url()" -->
+  
+    
   <ion-grid *ngIf="weather">
      <ion-row>
        <ion-col width-50 offset-25>
@@ -39,4 +50,11 @@
        </ion-list>
      </ion-col>
   </ion-grid>
+</div>
+</div>
+</div>
+
+
+
+
 </ion-content>

@@ -7,6 +7,14 @@ dest: '{{WWW}}/assets/fonts'
 copyFontawesomeCss: {
 src: ['{{ROOT}}/node_modules/font-awesome/css/font-awesome.min.css'],
 dest: '{{WWW}}/assets/css'
+},
+copySwiperCss: {
+	src: ['{{ROOT}}/node_modules/swiper/dist/css/swiper.min.css'],
+	dest: '{{WWW}}/assets/css'
+},
+copySwiperJs: {
+	src: ['{{ROOT}}/node_modules/swiper/dist/js/swiper.min.js'],
+	dest: '{{WWW}}/assets/js'
 }
 }
 );
