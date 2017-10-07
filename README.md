@@ -24,3 +24,9 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+
+***Screen Shot
+
+<p align="center">
+<img src="Screenshot-2017-9-22 iWeather.png" />
+</p>
